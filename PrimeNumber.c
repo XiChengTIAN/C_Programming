@@ -13,7 +13,7 @@ int isprime(int n)
                return 0;
             }
         }
-    return 1;
+    return 0;
 }
 
 int main()
