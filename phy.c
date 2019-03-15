@@ -1,34 +1,13 @@
 // practice
 
 #include <stdio.h>
-#include <math.h>
-
-#define pi 3.141592
-#define e 2.71828
 
 int main()
 {
-    printf("2\n");
-    int i;
-    for(i=3;i<30;i=i+2)
-    {
-        int m=2;
-        while(m<i)
-        {
-            m++;
-            int n=i%m;
-            
-            if(m==i)
-            {
-                printf("%d\n",i);
-            }
-            else if(n==0)
-            {
-                m=i+1;
-            }
-        }
-
-    }
-
+    double T0=0.0,T2=32.8,T3=15.8;
+    double m=3.101e-4,ms=1.2613e-5,M=2.123e-4;
+    double delta=2.17,c0=4180,cs=900;
+    double L=(1/M)*(m*c0+ms*cs+delta)*(T2-T3)-c0*(T3-T0);
+    printf("%f",L);
     return 0;
 }
