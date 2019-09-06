@@ -36,7 +36,7 @@ void print_array(int A[DROW][DCOL])
 
 int main()
 {
-    int A[3][3] = {{1, 2,3}, {3, 4,3}, {5, 6,3}};
+    int A[3][3] = {{1,2,3}, {3, 4,3}, {5, 6,3}};
 
     print_array(A);
     row(A, 1);
