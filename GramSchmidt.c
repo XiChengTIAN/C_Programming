@@ -102,6 +102,7 @@ int main()
 
     printf("Input:\n");
     print_array(r1, r2, r3);
+    printf("\n");
 
     GS(r1, r2, r3);
 
@@ -115,9 +116,11 @@ int main()
     
     printf("Output:\n");
     print_array(r1, r2, r3);
+    printf("\n");
 
     printf("Length:\n");
     printf("%lf %lf %lf\n", a1, a2, a3);
+    printf("\n");
 
     printf("Orthogonality:\n");
     printf("%lf %lf %lf\n", a12, a13, a23);
