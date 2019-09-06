@@ -23,26 +23,66 @@ void print_array(double A[ROW][COL],double B[ROW][COL],double C[ROW][COL])
 
 double inner(double A[ROW][COL],double B[ROW][COL])
     {
+        double AT[ROW][COL];
+        double BT[ROW][COL];
+
+        for (int j = 0; j < ROW; j++)
+        {
+            AT[j][0]=A[j][0];
+            BT[j][0]=B[j][0];
+        }
+        
         double a=0;
         for (int i = 0; i < ROW;i++)
         {
-            a = a + A[i][0] * B[i][0];
+            a = a + AT[i][0] * BT[i][0];
         }
+
         return a;
     }
 
 void GS(double A[ROW][COL],double B[ROW][COL],double C[ROW][COL])
 {
 
+    double ba2 = inner(B, A);
+    double aa2 = inner(A, A);
+
+    double AT[ROW][COL];
+    double BT[ROW][COL];
+
+    for (int j = 0; j < ROW; j++)
+        {
+            AT[j][0]=A[j][0];
+        }
+
+    for (int i = 0; i < ROW; i++)
+        {
+            B[i][0] = B[i][0] - (ba2 / aa2) * AT[i][0];
+        }
+
+    for (int j = 0; j < ROW;j++)
+        {
+            AT[j][0]=A[j][0];
+            BT[j][0]=B[j][0];
+        }
+
+    double ca3 = inner(C, A);
+    double aa3 = inner(A, A);
+    double cb3 = inner(C, B);
+    double bb3 = inner(B, B);
+    
     for (int i = 0; i < ROW; i++)
     {
-        B[i][0] = B[i][0] - (inner(B, A) / inner(A, A)) * A[i][0];
-        C[i][0] = C[i][0] - (inner(C, A) / inner(A, A)) * A[i][0] - (inner(C, B) / inner(B, B)) * B[i][0];
+        C[i][0] = C[i][0] - (ca3 / aa3) * AT[i][0] - (cb3 / bb3) * BT[i][0];
 
-        double a = sqrt(inner(A,A));
-        double b = sqrt(inner(B,B));
-        double c = sqrt(inner(C,C));
+    }    
 
+    double a = sqrt(inner(A,A));
+    double b = sqrt(inner(B,B));
+    double c = sqrt(inner(C,C));
+
+    for (int i = 0; i < ROW; i++)
+    {
         A[i][0] = A[i][0] / a;
         B[i][0] = B[i][0] / b;
         C[i][0] = C[i][0] / c;
